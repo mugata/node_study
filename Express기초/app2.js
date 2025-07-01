@@ -9,4 +9,11 @@ app.get("/",(req,res)=>{
     res.sendFile(__dirname + "/public/main.html");
 })
 
-app.listen(3000)
+app.listen(3000);
+
+/* 
+    Express의 3번 규칙
+    - 정적인 파일은 호출때는 무조건 public폴더에서 관리한다.
+    - 반드시 app.js(메인서버)파일에 정적파일은 public에서 조회 셋팅이 필요하다.
+    - 프론트엔드에서는 절대경로를 사용x -> 보안이슈 -> 사용자 눈에 보이는 영역
+*/ 
