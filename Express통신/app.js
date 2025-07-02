@@ -37,7 +37,7 @@ app.get("/getLogin", (req,res) => {
 })
 
 // 사용자가 postLogin으로 요청했을때 처리할 로직
-app.post("/postLogin",(req,res) =>{
+app.post("postLogin",(req,res) =>{
   // 모듈등록도 완료가 됐다. -> 값을 꺼내 쓰기만 한다.
   console.log(req.body)
 })
