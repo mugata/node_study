@@ -43,4 +43,37 @@ router.post("/login",(req,res)=>{
     })
 })
 
+// 업데이트 처리
+// 힌트 : 데이터를 보낼때 넘겨주는 순서가 중요하다(이건 닉네임부터 넘어옴), affectedRows
+router.post("/update",(req,res)=>{
+     console.log(req.body)
+     const {nick,id,pw} = req.body;
+     let sql = "update member set nick = ? where id = ? and pw = ?;"
+     conn.query(sql,[nick,id,pw],(err,result)=>{
+        console.log(result)
+        if(result.affectedRows >= 1) {
+            res.redirect("/")
+        }else{
+            res.redirect("/update")
+        }
+     })
+
+
+})
+
+// 삭제 처리
+// 힌트 : affectedRows
+router.post("/delete",(req,res)=>{
+    console.log(req.body)
+    const {id,pw} = req.body;
+    let sql = "delete from member where id = ? and pw = ?;"
+    conn.query(sql,[id,pw],(err,result)=>{
+        console.log(result)
+        if(result.affectedRows > 0) {
+            res.redirect("/")
+        }else{
+            res.redirect("/delete")
+        }
+    })
+})
 module.exports = router;

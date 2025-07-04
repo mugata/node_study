@@ -19,4 +19,12 @@ router.get("/join",(req,res)=>{
     res.sendFile(filePath+ "/login.html")
  })
 
+// 미션1 : 사용자가 update로 방문했을 때 update페이지 보여주기
+router.get("/update",(req,res)=>{
+    res.sendFile(filePath+"/update.html")
+})
+// 미션2 : 사용자가 delete 방문했을 때 delete페이지 보여주기
+router.get("/delete",(req,res)=>{
+    res.sendFile(filePath +"/delete.html")
+})
 module.exports = router;
