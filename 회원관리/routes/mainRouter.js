@@ -14,4 +14,9 @@ router.get("/join",(req,res)=>{
     res.sendFile(filePath+ "/join.html")
 })
 
+// 사용자가 login으로 방문했을 떄 로그인 페이지 보여주기
+ router.get("/login",(req,res)=>{
+    res.sendFile(filePath+ "/login.html")
+ })
+
 module.exports = router;
